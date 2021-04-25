@@ -27,6 +27,7 @@ jobs:
     
   test:
     runs-on: ubuntu-lates
+    needs: build
 
     strategy:
       matrix:        
@@ -34,6 +35,10 @@ jobs:
         os: [ubuntu-latest, windows-2016]
 
     steps:
+    - uses: actions/upload-artifact@master
+      with:
+        name: webpack artifacts
+        path: public/   
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
