@@ -14,7 +14,7 @@ jobs:
     environment: labo
     runs-on: ubuntu-latest
     env:
-      TF_VAR_env: ${{ jobs.build.runs-on }}
+      TF_VAR_env: jobs.build.runs-on
       TEST_VAR: "testerdetest"
     steps:
       - uses: actions/checkout@v2
