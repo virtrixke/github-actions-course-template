@@ -14,12 +14,12 @@ jobs:
     environment: labo
     runs-on: ubuntu-latest
     env:
-      TF_VAR_env: $environment
+      TF_VAR_env: jobs.build.environmen
     steps:
       - uses: actions/checkout@v2
       - name: npm install and build webpack
         run: |
-          echo $environment
+          echo jobs.build.environment
       - uses: actions/upload-artifact@v2
         with:
           name: webpack artifacts
